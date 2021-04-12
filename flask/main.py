@@ -2,8 +2,11 @@ import os
 import pickle
 from flask_bootstrap import Bootstrap
 from flask import Flask, render_template, request, redirect
+from flask_frozen import Freezer
 
 app = Flask(__name__)
+freezer = Freezer(app)
+
 Bootstrap(app)
 @app.route('/')
 def home():
@@ -21,4 +24,5 @@ def upload_file():
       return redirect("/")
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # app.run(debug=True)
+    freezer.freeze()
