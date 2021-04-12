@@ -15,13 +15,20 @@ def home():
 @app.route('/uploader', methods = ['GET', 'POST'])
 def upload_file():
    if request.method == 'POST' and request.files['file'] != None:
+      
       SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
       file_path = os.path.join(SITE_ROOT, "model", "model.pickle")
       classifier = pickle.load(open( file_path, "rb" ))
       f = request.files['file']
-      return '<p>' + str(classifier.predict(f)) + '</p>'
+    #   data = classifier.predict(f)
+      data = 0
+      if data == 0:
+          data = "Malignant"
+      else:
+          data = "Benign"
+      return render_template('home.html', value=data)
    else:
-      return redirect("/")
+      return render_template('home.html')
 
 if __name__ == '__main__':
     # app.run(debug=True)
