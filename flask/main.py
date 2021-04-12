@@ -26,9 +26,9 @@ def upload_file():
           data = "Malignant"
       else:
           data = "Benign"
-      return render_template('home.html', value=data)
+      return render_template('uploader.html', value=data)
    else:
-      return render_template('home.html')
+      return render_template('uploader.html')
 
 if __name__ == '__main__':
     # app.run(debug=True)

@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+{% block content %}
+    {% if value is defined %}
+        <br>
+        <p>{{value}}</p>
+    {% else %}
+        <p>Upload a file on the home page</p>
+    {% endif %}
+{% endblock %}
