@@ -1,14 +1,10 @@
 import os
-import pickle
 from flask_bootstrap import Bootstrap
 from flask import Flask, render_template, request, redirect
-#from flask_frozen import Freezer
 import json
-from matplotlib.image import imread
-import cv2
-import numpy
 import nsvision as nv
 import requests
+
 app = Flask(__name__)
 Bootstrap(app)
 
