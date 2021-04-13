@@ -25,7 +25,6 @@ def upload_file():
       file_path = os.path.join(SITE_ROOT, "model", "model.pickle")
       classifier = pickle.load(open( file_path, "rb" ))
       f = request.files['file'].read()
-      os.remove('./temp') 
       f_open = open('./temp', 'wb')
       f_open.write(f)
     #   data = classifier.predict(f)
@@ -47,6 +46,7 @@ def upload_file():
       print(json_response.json()['predictions'][0]) 
       label = ['Malignant','Benign']
       data = label[data]
+      os.remove('./temp')
       return render_template('uploader.html', value=data)
    else:
       return render_template('uploader.html')
