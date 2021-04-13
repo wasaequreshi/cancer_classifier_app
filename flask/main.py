@@ -19,7 +19,7 @@ def home():
 
 @app.route('/uploader', methods = ['GET', 'POST'])
 def upload_file():
-   if request.method == 'POST' and request.files['file'] != None:
+   if request.method == 'POST' and request.files['file'].filename != '':
       
       SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
       file_path = os.path.join(SITE_ROOT, "model", "model.pickle")
