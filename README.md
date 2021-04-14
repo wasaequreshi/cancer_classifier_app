@@ -2,7 +2,7 @@
 # Cancer Detection
 This repository contains the tensor server (classifier) and the flask server (flask) code. Below we describe the setup of our project. You can access this app here (if it is still being served by the team):
 
-http://44.239.142.97
+http://cd.wasaequreshi.com (or http://44.239.142.97)
 
 ### Tensor Server (classifier directory)
 This directory contains the model which will be run using tensor_server. This is exported from the colab of our project:
