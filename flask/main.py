@@ -22,16 +22,20 @@ def upload_file():
 
       image = nv.imread('./temp',resize=(50,50),normalize=True)
       image = nv.expand_dims(image,axis=0)
+
+      try:
+         data = json.dumps({"signature_name": "serving_default", "instances": image.tolist()})
+         headers = {"content-type": "application/json"}
       
-      data = json.dumps({"signature_name": "serving_default", "instances": image.tolist()})
-      headers = {"content-type": "application/json"}
-
-      json_response = requests.post('http://localhost:8502/v1/models/saved_model:predict', data=data, headers=headers)
-
-      label = ['Malignant','Benign']
-      data = int(json_response.json()['predictions'][0][0])
-      data = label[data]
-      os.remove('./temp')
+         json_response = requests.post('http://localhost:8502/v1/models/saved_model:predict', data=data, headers=headers)
+      
+         label = ['Malignant','Benign']
+         data = int(json_response.json()['predictions'][0][0])
+         data = label[data]
+         os.remove('./temp')
+      except:
+         os.remove('./temp')
+         return render_template('uploader.html')
 
       return render_template('uploader.html', value=data)
    else:
