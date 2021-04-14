@@ -2,7 +2,7 @@
 # Cancer Detection
 This repository contains the tensor server (classifier) and the flask server (flask) code. Below we describe the setup of our project. You can access this app here (if it is still being served by the team):
 
-http://44.239.142.97:5000
+http://44.239.142.97
 
 ### Tensor Server (classifier directory)
 This directory contains the model which will be run using tensor_server. This is exported from the colab of our project:
@@ -33,7 +33,7 @@ This contains the code for the UI and the backend which interacts with tensor se
 Run the following command to serve this app:
 
 ```
-python3 -m flask run --host=0.0.0.0
+sudo python3 main.py
 ```
 
 ### EC2
