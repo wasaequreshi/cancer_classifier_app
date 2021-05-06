@@ -6,6 +6,8 @@ import nsvision as nv
 import requests
 import googleapiclient.discovery
 
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="/home/ubuntu/cancer-classify-760a9abff36c.json"
+
 app = Flask(__name__)
 Bootstrap(app)
 
@@ -58,7 +60,6 @@ def upload_file():
       image = nv.expand_dims(image,axis=0)
       data = ""
       try:
-         
          response = predict_json("cancer-classify", "saved_model", image.tolist())
          output = response[0]
          if output['output_0'][0] > output['output_0'][1]:
@@ -67,7 +68,8 @@ def upload_file():
             data = "Benign" 
          
          os.remove('./temp')
-      except:
+      except Exception as e: 
+         print(e)
          print("error")
          os.remove('./temp')
          return render_template('uploader.html')
