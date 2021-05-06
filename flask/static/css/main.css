@@ -1,0 +1,22 @@
+
+body, 
+ html{
+min-height:100% !important; 
+height:100%;
+} 
+body {
+background-image:url( ../img/cancer.jpg ) !important;
+background-repeat:no-repeat !important;
+background-size:cover !important;
+}
+
+.box {
+    border-radius: 10px;
+    background-color: rgb(240, 248, 255, .5);
+    /* opacity: 50%; */
+    height: 100px;
+    width: 200px;
+    /* display: flex;
+    justify-content: center;
+   align-items: center; */
+}
